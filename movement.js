@@ -121,7 +121,7 @@ var routineTimer;
 var currentStripes = [];
 var rect1, rect2, top_mask, bottom_mask;
 var direction, startTime, trialFinished, x_position, start_x, rect_width, screen_width;
-var animation_duration = 16.0;
+var animation_duration = 20.0;
 
 async function experimentInit() {
   // Initialize components for Routine "instr"
