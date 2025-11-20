@@ -335,6 +335,7 @@ var frameN;
 var continueRoutine;
 var _hello_key_space_allKeys;
 var instrComponents;
+var routineForceEnded;
 function instrRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
