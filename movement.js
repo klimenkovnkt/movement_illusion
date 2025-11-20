@@ -183,9 +183,9 @@ function initAnimation() {
     let color_even, color_odd;
     if (contrast === "high") {
         color_even = "black";
-        color_odd = "grey";
+        color_odd = "white";
     } else {
-        color_even = "grey";
+        color_even = "darkgrey";
         color_odd = "lightgrey";
     }
     
