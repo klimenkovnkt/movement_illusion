@@ -199,7 +199,7 @@ function initAnimation() {
             height: screen_height,
             pos: [x_pos, 0],
             fillColor: color,
-            lineColor: color,
+            lineColor: null,
             linewidth: 0,
             units: 'pix',
             autoDraw: false
@@ -232,7 +232,7 @@ function initAnimation() {
         height: rect_height,
         pos: [start_x, start_y_top],
         fillColor: color1,
-        lineColor: color1,
+        lineColor: null,
         linewidth: 0,
         units: 'pix',
         autoDraw: false
@@ -244,7 +244,7 @@ function initAnimation() {
         height: rect_height,
         pos: [start_x, start_y_bottom],
         fillColor: color2,
-        lineColor: color2,
+        lineColor: null,
         linewidth: 0,
         units: 'pix',
         autoDraw: false
