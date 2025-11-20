@@ -271,9 +271,9 @@ function initAnimation() {
         autoDraw: false
     });
     
-    // Reset animation parameters
+    // Reset animation parameters - используем trialClock вместо globalClock
     direction = 1;
-    startTime = psychoJS.globalClock.getTime();
+    startTime = 0; // будем использовать относительное время
     trialFinished = false;
     x_position = start_x;
 }
@@ -281,7 +281,8 @@ function initAnimation() {
 function updateAnimation() {
     if (trialFinished) return;
     
-    const currentTime = psychoJS.globalClock.getTime() - startTime;
+    // Используем время из trialClock вместо globalClock
+    const currentTime = trialClock.getTime();
     
     if (direction === 1) { // movement to right
         const progress = Math.min(currentTime / animation_duration, 1.0);
@@ -289,7 +290,8 @@ function updateAnimation() {
         
         if (progress >= 1.0) {
             direction = -1;
-            startTime = psychoJS.globalClock.getTime();
+            // Сбрасываем таймер для движения влево
+            trialClock.reset();
         }
     } else { // movement to left
         const progress = Math.min(currentTime / animation_duration, 1.0);
@@ -304,7 +306,6 @@ function updateAnimation() {
     rect1.pos = [x_position, rect1.pos[1]];
     rect2.pos = [x_position, rect2.pos[1]];
 }
-
 function drawAnimation() {
     const win = psychoJS.window;
     
