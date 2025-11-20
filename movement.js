@@ -208,7 +208,7 @@ function initAnimation() {
     }
     
     // Create rectangles
-    rect_width = screen_width / 40;
+    rect_width = screen_width / 30;
     const rect_height = screen_height / 40;
     const distance_between = rect_height * 2;
     const total_height = rect_height * 2 + distance_between;
