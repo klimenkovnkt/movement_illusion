@@ -14,7 +14,7 @@ const { round } = util;
 // store info about the experiment session:
 let expName = 'movement';  // from the Builder filename that created this script
 let expInfo = {
-    'participant': `${util.pad(Number.parseFloat(util.randint(0, 999999)).toFixed(0), 6}`,
+    'participant': `${2}`,
     'session': '001',
 };
 
