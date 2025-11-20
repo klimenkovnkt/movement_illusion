@@ -793,7 +793,7 @@ function endRoutineBegin(snapshot) {
     psychoJS._saveResults = 0;
     
     // Generate filename for results
-    let filename = psychoJS.experiment.dataFileName + '.csv';
+    let filename = psychoJS._experiment._experimentName + '_' + psychoJS._experiment._datetime + '.csv';
     // Extract data object from experiment
     let dataObj = psychoJS._experiment._trialsData;
     // Convert data object to CSV
