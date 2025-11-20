@@ -183,10 +183,10 @@ function initAnimation() {
     let color_even, color_odd;
     if (contrast === "high") {
         color_even = "black";
-        color_odd = [0.5, 0.5, 0.5];
+        color_odd = "grey";
     } else {
-        color_even = [0.2, 0.2, 0.2];
-        color_odd = [0.5, 0.5, 0.5];
+        color_even = "grey";
+        color_odd = "lightgrey";
     }
     
     for (let i = 0; i < n_bars; i++) {
@@ -207,9 +207,9 @@ function initAnimation() {
     }
     
     // Create rectangles
-    rect_width = screen_width / 14;
-    const rect_height = screen_height / 13;
-    const distance_between = rect_height * 3;
+    rect_width = screen_width / 20;
+    const rect_height = screen_height / 40;
+    const distance_between = rect_height * 2;
     const total_height = rect_height * 2 + distance_between;
     
     start_x = -screen_width/2 + rect_width/2;
@@ -222,7 +222,7 @@ function initAnimation() {
         color2 = "blue";
     } else {
         color1 = "black";
-        color2 = "black";
+        color2 = "white";
     }
     
     rect1 = new visual.Rect({
