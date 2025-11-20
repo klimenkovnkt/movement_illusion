@@ -105,7 +105,7 @@ async function updateInfo() {
   return Scheduler.Event.NEXT;
 }
 
-
+var text_3;
 var instrClock;
 var hello_text;
 var hello_key_space;
@@ -160,6 +160,18 @@ async function experimentInit() {
   
   // Initialize components for Routine "end"
   endClock = new util.Clock();
+  text_3 = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_3',
+    text: 'Эксперимент окончен!\nПожалуйста, подождите пока данные сохраняются — не закрывайте вкладку',
+    font: 'Arial',
+    units: undefined, 
+    pos: [0, 0], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color([(- 1.0), (- 1.0), (- 1.0)]),  opacity: undefined,
+    depth: 0.0 
+  });
+  
   // Create some handy timers
   globalClock = new util.Clock();  // to track the time since experiment started
   routineTimer = new util.CountdownTimer();  // to track time remaining of each (non-slip) routine
