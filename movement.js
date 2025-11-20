@@ -200,7 +200,7 @@ function initAnimation() {
             pos: [x_pos, 0],
             fillColor: color,
             lineColor: null,
-            linewidth: 0,
+            lineWidth: 0,
             units: 'pix',
             autoDraw: false
         });
@@ -233,7 +233,7 @@ function initAnimation() {
         pos: [start_x, start_y_top],
         fillColor: color1,
         lineColor: null,
-        linewidth: 0,
+        lineWidth: 0,
         units: 'pix',
         autoDraw: false
     });
@@ -245,7 +245,7 @@ function initAnimation() {
         pos: [start_x, start_y_bottom],
         fillColor: color2,
         lineColor: null,
-        linewidth: 0,
+        lineWidth: 0,
         units: 'pix',
         autoDraw: false
     });
