@@ -758,6 +758,9 @@ function trialRoutineEnd(snapshot) {
 }
 
 
+
+var endMaxDurationReached;
+var endMaxDuration;
 var endComponents;
 function endRoutineBegin(snapshot) {
   return async function () {
@@ -765,18 +768,19 @@ function endRoutineBegin(snapshot) {
     
     //--- Prepare to start Routine 'end' ---
     t = 0;
-    endClock.reset(); // clock
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
+    // keep track of whether this Routine was forcibly ended
+    routineForceEnded = false;
+    endClock.reset();
+    routineTimer.reset();
+    endMaxDurationReached = false;
     // update component parameters for each repeat
-    psychoJS.experiment.addData('end.started', globalClock.getTime());
-    // keep track of which components have finished
-    endComponents = [];
     // Disable downloading results to browser
     psychoJS._saveResults = 0;
     
     // Generate filename for results
-    let filename = psychoJS._experiment.dataFileName + '.csv';
+    let filename = psychoJS.experiment.dataFileName + '.csv';
     // Extract data object from experiment
     let dataObj = psychoJS._experiment._trialsData;
     // Convert data object to CSV
@@ -801,6 +805,12 @@ function endRoutineBegin(snapshot) {
         console.log(data);
         quitPsychoJS();
     })
+    psychoJS.experiment.addData('end.started', globalClock.getTime());
+    endMaxDuration = null
+    // keep track of which components have finished
+    endComponents = [];
+    endComponents.push(text_3);
+    
     for (const thisComponent of endComponents)
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
@@ -816,6 +826,21 @@ function endRoutineEachFrame() {
     t = endClock.getTime();
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
+    
+    // *text_3* updates
+    if (t >= 0.0 && text_3.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      text_3.tStart = t;  // (not accounting for frame time here)
+      text_3.frameNStart = frameN;  // exact frame index
+      
+      text_3.setAutoDraw(true);
+    }
+    
+    
+    // if text_3 is active this frame...
+    if (text_3.status === PsychoJS.Status.STARTED) {
+    }
+    
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -823,6 +848,7 @@ function endRoutineEachFrame() {
     
     // check if the Routine should terminate
     if (!continueRoutine) {  // a component has requested a forced-end of Routine
+      routineForceEnded = true;
       return Scheduler.Event.NEXT;
     }
     
@@ -862,7 +888,6 @@ function endRoutineEnd(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function importConditions(currentLoop) {
   return async function () {
